@@ -23,7 +23,7 @@ all_messages = load_info(my_db_name)
 
 @app.route('/')
 def index_page():
-    return render_template(['authorization.html'])
+    return render_template('authorization.html')
 
 
 @app.route('/chat')
