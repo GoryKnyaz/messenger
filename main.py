@@ -30,6 +30,10 @@ def index_page():
 def display_chat():
     return render_template('form.html')
 
+@app.route('/images/back_ground.jpg')
+def image_background():
+    return render_template('images/back_ground.html')
+
 
 @app.route('/get_messages')
 def get_message():
@@ -52,3 +56,4 @@ def send_message():
 
 
 app.run(host='0.0.0.0', port=4567)
+app.config['UPLOAD_FOLDER'] = '/images'
