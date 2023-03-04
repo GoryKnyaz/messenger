@@ -61,27 +61,24 @@ body
     background-color: rgb(246,56,204);
 }
 
-
 .user_input button
 {
+    width: 40px;
+    height: 30px;
     padding: 5px 5px;
     border-radius: 7px;
     border: rgb(246,56,204);
-    background: linear-gradient(25deg, rgb(90,61,92), rgb(246,56,204));
+    background: url("../images/arrow.png") no-repeat center center;
+    background-size: 40px 30px;
 }
 
 .user_input button:hover
 {
-    background: linear-gradient(25deg, rgb(246,56,204), rgb(90,61,92));
+    background-color: rgb(236 19 188);
 }
 
 .user_input button:active
 {
     color: black;
-    background: white;
-}
-
-.arrow_bg
-{
-    background: rgb(32,15,33) url("../images/arrow.jpg") no-repeat center center fixed;
+    background-color: white;
 }
