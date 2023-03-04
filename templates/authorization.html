@@ -3,108 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= './css/authorization.css') }}">
 </head>
 <body>
-    <div class="form">
-        <h1 class="auth">Welcome</h1>
-        <input type="text" placeholder="Login">
-        <input type="password" placeholder="Password">
-        <a class="forgot-pwd" href="#">Forgot password?</a>
-        <button class="form-btn">Entry</button>
-    </div>
-<style>
-    body
-    {
-        display: flex;
-        min-height: 90vh;
-        button-layout: 1;
-        align-items: center;
-        justify-content: center;
-        background: url(./images/back_ground.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
-    .form
-    {
-        display: flex;
-        border-radius: 5px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        background-color: rgba(0,0,0,0);
-    }
-
-    .auth
-    {
-        font-family: sans-serif;
-        font-size: 30px;
-        color: rgb(246,56,204);
-        text-transform: uppercase;
-        padding: 0 20px;
-    }
-
-    .form input
-    {
-        color: white;
-        padding: 7px;
-        width: 125%;
-        margin: 10px 0;
-        font-size: 18px;
-        border-style: none;
-        border-radius: 7px;
-        background: rgb(90,61,92);
-        outline-color: rgb(246,56,204);
-    }
-    .form input::selection
-    {
-        background-color: rgb(246,56,204);
-    }
-
-    .forgot-pwd
-    {
-        color: rgb(246,56,204);
-        font-size: 18px;
-        text-weight: bold;
-        margin: 10px 0;
-        transition: .2s;
-    }
-
-    .forgot-pwd:hover
-    {
-        color: black;
-        border: none;
-    }
-
-    .form-btn
-    {
-        color: white;
-        outline: none;
-        font-size: 25px;
-        margin-top: 20px;
-        font-weight: bold;
-        padding: 7px 50px;
-        border-radius: 7px;
-        margin-bottom: 15px;
-        font-family: sans-serif;
-        text-transform: uppercase;
-        border: 2px outset rgb(246,56,204);
-        background: linear-gradient(25deg, rgb(90,61,92), rgb(246,56,204));
-    }
-
-    .form-btn:hover
-    {
-        background: linear-gradient(25deg, rgb(246,56,204), rgb(90,61,92));
-    }
-
-    .form-btn:active
-    {
-        color: black;
-        background: white;
-    }
-</style>
+<div class="form">
+    <h1 class="auth">Welcome</h1>
+    <input type="text" placeholder="Login">
+    <input type="password" placeholder="Password">
+    <a class="forgot-pwd" href="#">Forgot password?</a>
+    <button class="button">Entry</button>
+</div>
 </body>
 </html>

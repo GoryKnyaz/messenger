@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
-
-    <!-- Подключение библиотеки jQuery-->
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous">
-    </script>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename= './css/chat.css') }}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <!-- Код взаимодействия с сервером -->
     <script language="JavaScript">
         // Загрузка и отображение сообщений
-        function loadMessages() {
+        function loadMessages()
+        {
            $.get(
             "/get_messages",
             (data) => {
@@ -36,8 +31,9 @@
         }
 
         // Отправка сообщения
-        function sendMessage() {
-            var name = $("#name").val(); // Кладем текст из поля "name" в переменную
+        function sendMessage()
+        {
+            var name = "admin"; // Кладем текст из поля "name" в переменную
             var text = $("#text").val();
             $.get("/send_message", { "name" : name, "text" : text});
 
@@ -61,13 +57,12 @@
     </script>
 </head>
 <body>
-    <!-- Интерфейс: имя, окно чата, текст сообщения -->
-    <b>Ваше Имя:</b>
-    <input id="name" type="text" placeholder="Ваше имя"/>
-
-    <div id="chat_window"></div>
-
-    <br/>
-    <input id="text" type="text" placeholder="Текст сообщения">
+    <div class="chat_frame">
+        <div class="chat_window"></div>
+        <div class="user_input">
+            <input id="text" type="text" placeholder="Input Text">
+            <button class="button arrow_bg">➤</button>
+        </div>
+    </div>
 </body>
 </html>
