@@ -57,7 +57,25 @@
            });
             loadMessages();
         });
+        // Автопрокрутка
+        var timer;
+        var isPaused = false;
 
+        $(window).on('wheel', function()
+        {
+	        isPaused = true;
+	        clearTimeout(timer);
+	        timer = window.setTimeout(function()
+	        {
+		        isPaused = false;
+	        }, 1000);
+        });
+
+        window.setInterval(function(){
+	        if(!isPaused){
+		        $("#chat_window").scrollTop($("#chat_window")[0].scrollHeight);
+	        }
+        }, 500);
     </script>
 </head>
 <body>
