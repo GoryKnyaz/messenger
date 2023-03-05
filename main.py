@@ -39,14 +39,15 @@ def send_message():
     sender = request.args['name']
     text = request.args['text']
     time = datetime.now().strftime("%H:%M")
-    text_info = \
-        {
-            "text": text,
-            "sender": sender,
-            "time": time
-        }
-    all_messages.append(text_info)
-    save_info(my_db_name, all_messages)
+    if text:
+        text_info = \
+            {
+                "text": text,
+                "sender": sender,
+                "time": time
+            }
+        all_messages.append(text_info)
+        save_info(my_db_name, all_messages)
     return {"messages": all_messages}
 
 

@@ -11,7 +11,6 @@
     </script>
     <!-- Код взаимодействия с сервером -->
     <script defer language="JavaScript">
-        // Загрузка и отображение сообщений
         function loadMessages()
         {
            $.get(
@@ -34,25 +33,26 @@
            );
         }
 
-        // Отправка сообщения
         function sendMessage()
         {
-            var name = "admin"; // Кладем текст из поля "name" в переменную
+            var name = "admin";
             var text = $("#text").val();
             $.get("/send_message", { "name" : name, "text" : text});
 
             $("#text").val("");
         }
 
-        // При загрузке страницы
+        function clickButton()
+        {
+            sendMessage();
+            loadMessages();
+        };
         $(() => {
-           // При нажатии клавиш в поле текст
-           $("#text").on("keypress", (event) => {
-                // При нажатии Enter, вызвать функцию sendMessage
+           $("#text").on("keypress", (event) =>
+           {
                 if (event.keyCode == 13)
                 {
-                    sendMessage();
-                    loadMessages();
+                    clickButton();
                 }
            });
             loadMessages();
@@ -62,10 +62,10 @@
 </head>
 <body>
     <div class="chat_frame">
-        <div class="chat_window"></div>
+        <div id="chat_window" class="chat_window"></div>
         <div class="user_input">
             <input id="text" type="text" placeholder="Input Text">
-            <button class="button arrow_bg"></button>
+            <button id="button" onclick="clickButton()" class="button arrow_bg"></button>
         </div>
     </div>
 </body>
