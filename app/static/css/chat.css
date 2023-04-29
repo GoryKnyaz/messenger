@@ -1,0 +1,141 @@
+body
+{
+    display: flex;
+    background: rgb(32,15,33) url("../images/back_ground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.chat_frame
+{
+    display: flex;
+    flex-basis: content;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    width: 80%;
+    height: 90%;
+}
+
+.chat_window
+{
+    color: white;
+    margin: 20px 0;
+    border-style: none;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(32,15,33);
+    overflow: auto;
+}
+
+.message_design
+{
+    display: flex;
+    color: black;
+    margin: 0.7em auto 0.7em 0.7em;
+    padding: 5px 5px 0px 5px;
+    border-style: none;
+    border-radius: 5px;
+    width: fit-content;
+    max-width: 45%;
+    min-height: 6%;
+    background-color: rgb(115, 82, 221);
+    word-break: break-word;
+}
+
+.my_message_design
+{
+    display: flex;
+    color: black;
+    margin: 0.7em 0.7em 0.7em auto;
+    padding: 5px 5px 0px 5px;
+    border-style: none;
+    border-radius: 5px;
+    width: fit-content;
+    max-width: 45%;
+    min-height: 6%;
+    background-color: rgb(85, 45, 150);
+    word-break: break-word;
+}
+
+.block_picture
+{
+    display: inline-block;
+    margin: 0 5px 0 0px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+.block_text
+{
+    color: black;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.block_name
+{
+
+}
+
+.block_time
+{
+
+}
+
+.user_input
+{
+    display: flex;
+    position: sticky;
+    bottom: 20px;
+    height: 40px;
+    width: 100%;
+
+    align-items: flex-end;
+}
+
+.user_input input[type="text" i]
+{
+    width: 100%;
+    padding: 5px 5px;
+    color: white;
+    font-size: 16px;
+    border-style: none;
+    border-radius: 7px;
+    background-color: rgb(90,61,92);
+    outline-color: rgb(246,56,204);
+}
+.user_input input[type="text" i]::selection
+{
+    background-color: rgb(246,56,204);
+}
+
+.user_input input[type="submit" i]
+{
+    width: 40px;
+    height: 30px;
+    padding: 5px 5px;
+    border-radius: 7px;
+    border: rgb(246,56,204);
+    background: url("../images/arrow.png") no-repeat center center;
+    background-size: 40px 30px;
+}
+
+.user_input input[type="submit" i]:hover
+{
+    background-color: rgb(236 19 188);
+}
+
+.user_input button:active
+{
+    color: black;
+    background-color: white;
+}

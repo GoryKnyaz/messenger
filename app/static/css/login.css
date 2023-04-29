@@ -1,0 +1,96 @@
+body
+{
+    display: flex;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+    background: rgb(32,15,33) url("../images/back_ground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    flex-direction: column;
+}
+
+.form
+{
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0,0,0,0);
+}
+
+.auth
+{
+    font-family: sans-serif;
+    font-size: 30px;
+    color: rgb(246,56,204);
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+
+.form input[type="text" i], input[type="password" i]
+{
+    color: white;
+    padding: 7px;
+    width: 125%;
+    margin: 10px 0;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 7px;
+    background: rgb(90,61,92);
+    outline-color: rgb(246,56,204);
+}
+.form input[type="text" i]::selection, input[type="password" i]::selection
+{
+    background-color: rgb(246,56,204);
+}
+
+.forgot-pwd
+{
+    color: rgb(251 72 212);
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    text-weight: bold;
+    margin: 10px 0;
+    transition: .2s;
+}
+
+.forgot-pwd:hover
+{
+    color: white;
+    border: none;
+}
+
+.form input[type="submit" i]
+{
+    color: white;
+    outline: none;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 7px 50px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    border: 2px outset rgb(246,56,204);
+    background: linear-gradient(25deg, rgb(90,61,92), rgb(246,56,204));
+}
+
+.form input[type="submit" i]:hover
+{
+    background: linear-gradient(25deg, rgb(246,56,204), rgb(90,61,92));
+}
+
+.form input[type="submit" i]:active
+{
+    color: black;
+    background: white;
+}
+
+a, u {
+  text-decoration: none;
+}
