@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename= './css/chat.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+    <script src="{{ url_for('static', filename= './js/chat.js') }}"></script>
+{% endblock links %}
+
+{% block content %}
+    <div class="chat_frame">
+        <div id="chat_window" class="chat_window">
+            {% for post in posts %}
+            <div class="message_design">
+                <div>
+                    {% if url_for('static', filename= './images/' + post.username + '.jpg') %}
+                        <img class="block_picture" src="{{ url_for('static', filename= './images/KEKWait.jpg') }}" align="left">
+                    {% else %}
+                        <img class="block_picture" src="{{ url_for('static', filename= './images/defaultprofilepicture.png')}}" align="left">
+                    {% endif %}
+
+                </div>
+                <div>
+                    <b>{{ post.username }}</b>
+                    <i>{{ post.timestamp }}</i>
+                    <div class="block_text">
+                        {{ post.body }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="user_input">
+            <input id="text" type="text" placeholder="Input Text">
+            <button id="button" onclick="clickButton()" class="button arrow_bg"></button>
+        </div>
+    </div>
+{% endblock content %}
