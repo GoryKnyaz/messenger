@@ -1,32 +1,23 @@
 {% extends "base.html" %}
 
 {% block links %}
-    <link rel="stylesheet" href="{{ url_for('static', filename= './css/chat.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text&family=Poppins:wght@200&display=swap" rel="stylesheet">
+{% endblock links %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename= './css/chat.css') }}">
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="{{ url_for('static', filename= './js/chat.js') }}"></script>
-{% endblock links %}
-
-{% block content %}
     <div class="chat_frame">
         <div id="chat_window" class="chat_window">
-            {% for post in posts[::-1] %}
-                {% if post.user_id == current_user.id %}
-                    <div class="my_message_design">
-                        {% include '_post.html' %}
-                    </div>
-                {% else %}
-                    <div class="message_design">
-                        {% include '_post.html' %}
-                    </div>
-                {% endif %}
-            {% endfor %}
+            {% include 'posts.html' %}
         </div>
         {% if form %}
                 <form class="user_input" action="" method="post">
@@ -40,10 +31,4 @@
         {% endif %}
     </div>
 
-    {% if prev_url %}
-    <a href="{{ prev_url }}">Newer posts</a>
-    {% endif %}
-    {% if next_url %}
-    <a href="{{ next_url }}">Older posts</a>
-    {% endif %}
 {% endblock %}

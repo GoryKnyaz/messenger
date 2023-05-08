@@ -1,0 +1,12 @@
+
+{% for post in posts %}
+    {% if post.user_id == current_user.id %}
+        <div class="my_message_design">
+            {% include '_post.html' %}
+        </div>
+    {% else %}
+        <div class="message_design">
+            {% include '_post.html' %}
+        </div>
+    {% endif %}
+{% endfor %}

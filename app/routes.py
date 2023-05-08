@@ -1,10 +1,13 @@
+import requests
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
+from flask_moment import moment
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, EmptyForm
 from app.models import User, Post
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -17,23 +20,28 @@ def index():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('index'))
-    page = request.args.get('page', 1, type=int)
-    posts = current_user.followed_posts().paginate(
-        page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-    next_url = url_for('index', page=posts.next_num) \
-        if posts.has_next else None
-    prev_url = url_for('index', page=posts.prev_num) \
-        if posts.has_prev else None
+    posts = Post.query.order_by(Post.timestamp.asc()).all()
     return render_template('index.html', title='Home', form=form,
-                           posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+                           posts=posts)
+
+@app.route('/whatNews')
+def whatNews():
+    user_name = request.args.get('user')
+    timestamp = datetime.utcfromtimestamp(datetime.fromisoformat(request.args.get('time')).timestamp())
+    body = request.args.get('body')
+    last_user = User.query.filter_by(username=user_name).first()
+    post = db.session.query(Post).filter(Post.user_id == last_user.id, Post.body == body,
+                                         Post.timestamp.like('%{}%'.format(timestamp))).first()
+    post_id = 0 if post is None else post.id
+    posts = db.session.query(Post).filter(Post.id > post_id).order_by(Post.timestamp.asc()).all()
+    return render_template('posts.html', posts=posts)
 
 
 @app.route('/explore')
 @login_required
 def explore():
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+    posts = current_user.followed_posts().paginate(
         page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
     next_url = url_for('explore', page=posts.next_num) \
         if posts.has_next else None
@@ -46,7 +54,7 @@ def explore():
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
-        current_user.last_seen = datetime.now()
+        current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
 
@@ -55,7 +63,7 @@ def before_request():
 def follow(username):
     form = EmptyForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=username).first()
+        user = db.query.fitler
         if user is None:
             flash('User {} not found.'.format(username))
             return redirect(url_for('index'))
@@ -95,7 +103,7 @@ def unfollow(username):
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     page = request.args.get('page', 1, type=int)
-    posts = user.posts.order_by(Post.timestamp.desc()).paginate(
+    posts = user.posts.order_by(Post.timestamp.asc()).paginate(
         page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
     next_url = url_for('user', username=user.username, page=posts.next_num) \
         if posts.has_next else None

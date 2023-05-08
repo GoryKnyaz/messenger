@@ -36,6 +36,25 @@ body
     overflow: auto;
 }
 
+#scroll_down
+{
+	position: absolute;
+	bottom: 8em;
+	right: -5em;
+	z-index: 1000;
+	width: 32px;
+	height: 32px;
+	background: url("../images/scroll_down.png") 50% 50% no-repeat;
+	border-radius: 50%;
+	opacity: 0.5;
+}
+
+#scroll_down:hover
+{
+ 	opacity: 1;
+}
+
+
 .message_design
 {
     display: flex;
