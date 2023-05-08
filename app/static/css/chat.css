@@ -36,6 +36,24 @@ body
     overflow: auto;
 }
 
+.chat_window::-webkit-scrollbar
+{
+    width: 15px;
+}
+
+.chat_window::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(32, 15, 33, 0.2) inset;
+    background-color: #5e114b;
+    border-radius: 20px;
+}
+
+.chat_window::-webkit-scrollbar-thumb
+{
+  border-radius: 20px;
+  background: linear-gradient(180deg, #200f21, #ec13bc);
+}
+
 #scroll_down
 {
 	position: absolute;

@@ -19,7 +19,6 @@ function whatNews()
         $("#chat_window").append(response);
         flask_moment_render_all();
         var div = $("#chat_window");
-        console.log(div[0].scrollHeight, div.scrollTop() + div[0].clientHeight);
         if (Math.abs(div[0].scrollHeight - div.scrollTop() - div[0].clientHeight) < 100)
         {
         //div.scrollTop($("#chat_window").prop('scrollHeight')); прокрутки, нужно поставить какое-то условие, что чел
