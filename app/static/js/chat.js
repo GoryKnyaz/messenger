@@ -23,7 +23,7 @@ function whatNews()
         if (Math.abs(div[0].scrollHeight - div.scrollTop() - div[0].clientHeight) < 100)
         {
         //div.scrollTop($("#chat_window").prop('scrollHeight')); прокрутки, нужно поставить какое-то условие, что чел
-        div.animate({scrollTop: div.prop('scrollHeight')}, 600);
+            div.animate({scrollTop: div.prop('scrollHeight')}, 600);
         }
       },
       error: function(xhr) {
