@@ -19,8 +19,12 @@ function whatNews()
         $("#chat_window").append(response);
         flask_moment_render_all();
         var div = $("#chat_window");
+        console.log(div[0].scrollHeight, div.scrollTop() + div[0].clientHeight);
+        if (Math.abs(div[0].scrollHeight - div.scrollTop() - div[0].clientHeight) < 100)
+        {
         //div.scrollTop($("#chat_window").prop('scrollHeight')); прокрутки, нужно поставить какое-то условие, что чел
-        //div.animate({scrollTop: div.prop('scrollHeight')}, 600); прокручен до конца и тогда прокрутить вниз
+        div.animate({scrollTop: div.prop('scrollHeight')}, 600);
+        }
       },
       error: function(xhr) {
         alert(xhr)
@@ -54,7 +58,7 @@ $(document).ready(function() {
     var button = $('#scroll_down');
     $('#chat_window').scroll(function () {
         var scrl = this.scrollHeight - $(this).scrollTop() - $(this).height();
-        if (scrl > 150) {
+        if (scrl > 100) {
             button.fadeIn();
         } else {
             button.fadeOut();
