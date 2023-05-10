@@ -26,7 +26,7 @@ function whatNews()
         }
       },
       error: function(xhr) {
-        alert(xhr)
+        //alert(xhr)
       }
     });
 }
