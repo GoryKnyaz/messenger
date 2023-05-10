@@ -7,7 +7,9 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, EmptyForm
 from app.models import User, Post
 from datetime import datetime
-from bs4 import BeautifulSoup
+
+
+# from bs4 import BeautifulSoup
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -23,6 +25,7 @@ def index():
     posts = Post.query.order_by(Post.timestamp.asc()).all()
     return render_template('index.html', title='Home', form=form,
                            posts=posts)
+
 
 @app.route('/whatNews')
 def whatNews():
