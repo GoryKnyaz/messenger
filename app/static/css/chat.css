@@ -1,3 +1,9 @@
+@font-face
+{
+    font-family: genshin;
+    src: url("../fonts/Genshin_Impact.ttf");
+}
+
 body
 {
     display: flex;
@@ -10,7 +16,6 @@ body
     align-items: center;
     justify-content: space-between;
 }
-
 
 .chat_frame
 {
@@ -26,7 +31,7 @@ body
 
 .chat_window
 {
-    color: white;
+    color: #fdffe8;
     margin: 20px 0;
     border-style: none;
     border-radius: 20px;
@@ -51,7 +56,7 @@ body
 .chat_window::-webkit-scrollbar-thumb
 {
   border-radius: 20px;
-  background: linear-gradient(180deg, #200f21, #ec13bc);
+  background: linear-gradient(180deg, rgb(90,61,92), rgb(187, 20, 100));
 }
 
 #scroll_down
@@ -77,6 +82,7 @@ body
 {
     display: flex;
     color: black;
+    font-family: genshin;
     margin: 0.7em auto 0.7em 0.7em;
     padding: 5px 5px 0px 5px;
     border-style: none;
@@ -84,14 +90,21 @@ body
     width: fit-content;
     max-width: 45%;
     min-height: 6%;
-    background-color: rgb(115, 82, 221);
+    background-color: #a33f6f;
     word-break: break-word;
+}
+
+a
+{
+    color: #259aff;
+    text-shadow: 2px 2px 3px black;
 }
 
 .my_message_design
 {
     display: flex;
     color: black;
+    font-family: genshin;
     margin: 0.7em 0.7em 0.7em auto;
     padding: 5px 5px 0px 5px;
     border-style: none;
@@ -99,7 +112,7 @@ body
     width: fit-content;
     max-width: 45%;
     min-height: 6%;
-    background-color: rgb(85, 45, 150);
+    background-color: #905CA4;
     word-break: break-word;
 }
 
@@ -135,7 +148,6 @@ body
     bottom: 20px;
     height: 40px;
     width: 100%;
-
     align-items: flex-end;
 }
 
@@ -145,14 +157,15 @@ body
     padding: 5px 5px;
     color: white;
     font-size: 16px;
+    font-family: genshin;
     border-style: none;
     border-radius: 7px;
     background-color: rgb(90,61,92);
-    outline-color: rgb(246,56,204);
+    outline-color: rgb(187, 20, 100);
 }
 .user_input input[type="text" i]::selection
 {
-    background-color: rgb(246,56,204);
+    background-color: rgb(187, 20, 100);
 }
 
 .user_input input[type="submit" i]
@@ -161,14 +174,14 @@ body
     height: 30px;
     padding: 5px 5px;
     border-radius: 7px;
-    border: rgb(246,56,204);
+    border: rgb(187, 20, 100);
     background: url("../images/arrow.png") no-repeat center center;
     background-size: 40px 30px;
 }
 
 .user_input input[type="submit" i]:hover
 {
-    background-color: rgb(236 19 188);
+    background-color: rgb(216 29 168);
 }
 
 .user_input button:active

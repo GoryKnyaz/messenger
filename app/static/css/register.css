@@ -1,0 +1,96 @@
+@font-face
+{
+    font-family: genshin;
+    src: url("../fonts/Genshin_Impact.ttf");
+}
+
+body
+{
+    display: flex;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+    background: rgb(32,15,33) url("../images/back_ground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    flex-direction: column;
+}
+
+h1
+{
+    text-align: center;
+    color: #fdffe8;
+    margin: 5%;
+    text-shadow: 2px 2px 3px black;
+    font-size: 30px;
+    font-family: genshin;
+}
+
+.row
+{
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form
+{
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    text-align: left;
+    color: #fdffe8;
+    text-shadow: 2px 2px 3px black;
+    font-size: 14px;
+    font-family: genshin;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form input[type="text" i], input[type="password" i]
+{
+    color: white;
+    padding: 7px;
+    margin: 5px 0;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 7px;
+    background: rgb(90,61,92);
+    outline-color: rgb(187, 20, 100);
+}
+.form input[type="text" i]::selection, input[type="password" i]::selection
+{
+    background-color: rgb(187, 20, 100);
+}
+
+.form input[type="submit" i]
+{
+    color: #fdffe8;
+    outline: none;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 7px 50px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    font-family: genshin;
+    text-transform: uppercase;
+    border: 2px outset rgb(246,56,204);
+    background: linear-gradient(25deg, rgb(90,61,92), rgb(187, 20, 100));
+}
+
+.form input[type="submit" i]:hover
+{
+    background: linear-gradient(25deg, rgb(187, 20, 100), rgb(90,61,92));
+}
+
+.form input[type="submit" i]:active
+{
+    color: black;
+    background: #fdffe8;
+}

@@ -1,0 +1,107 @@
+@font-face
+{
+    font-family: genshin;
+    src: url("../fonts/Genshin_Impact.ttf");
+}
+
+body
+{
+    display: flex;
+    min-height: 90vh;
+    background: rgb(32,15,33) url("../images/back_ground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    flex-direction: column;
+}
+
+h1
+{
+    text-align: left;
+    color: #fdffe8;
+    margin: 3%;
+    text-shadow: 2px 2px 3px black;
+    font-size: 20px;
+    font-family: genshin;
+}
+
+.username
+{
+    display: flex;
+    border-radius: 5px;
+    margin: 10px 10px;
+    align-items: flex-start;
+    text-align: left;
+    color: #fdffe8;
+    text-shadow: 2px 2px 3px black;
+    font-size: 14px;
+    font-family: genshin;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.username input[type="text" i]
+{
+    text-shadow: 1px 1px 1px black;
+    padding: 7px;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 7px;
+    background: rgb(90,61,92);
+    outline-color: rgb(187, 20, 100);
+}
+
+.username input[type="text" i]::selection
+{
+    background-color: rgb(187, 20, 100);
+}
+
+.about_me
+{
+    display: flex;
+    border-radius: 5px;
+    margin: 10px;
+    color: #fdffe8;
+    text-shadow: 2px 2px 3px black;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 14px;
+    font-family: genshin;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.about_me textarea
+{
+    color: #fdffe8;
+    text-shadow: 1px 1px 1px black;
+    background: rgb(90,61,92);
+    border-style: none;
+    padding: 5px;
+    border-radius: 7px;
+    min-width: 450px;
+    min-height: 80px;
+    max-width: 80%;
+    max-height: 15em;
+    font-size: 14px;
+    outline-color: rgb(187, 20, 100);
+}
+
+.about_me textarea::selection
+{
+    background-color: rgb(187, 20, 100);
+}
+
+input[type="submit" i]
+{
+    color: #fdffe8;
+    outline: none;
+    font-size: 15px;
+    margin: 0 10px 15px;
+    padding: 7px 50px;
+    border-radius: 7px;
+    font-family: genshin;
+    border: 2px outset rgb(246,56,204);
+    background: linear-gradient(25deg, rgb(90,61,92), rgb(187, 20, 100));
+}

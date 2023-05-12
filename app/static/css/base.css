@@ -1,0 +1,17 @@
+@font-face
+{
+    font-family: genshin;
+    src: url("../fonts/Genshin_Impact.ttf");
+}
+
+body
+{
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    font-family: genshin;
+    flex-direction: column;
+    justify-content: center;
+}
