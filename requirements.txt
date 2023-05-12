@@ -46,3 +46,6 @@ WTForms==3.0.1
 
 
 migrate~=0.3.7
+sqlalchemy-migrate==0.13.0
+sqlalchemy-database==0.1.0
+sqlalchemy2-stubs==0.0.2a34

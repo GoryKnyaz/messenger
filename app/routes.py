@@ -66,7 +66,7 @@ def before_request():
 def follow(username):
     form = EmptyForm()
     if form.validate_on_submit():
-        user = db.query.fitler
+        user = User.query.filter_by(username=username).first()
         if user is None:
             flash('User {} not found.'.format(username))
             return redirect(url_for('index'))

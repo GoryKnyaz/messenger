@@ -21,7 +21,7 @@ function whatNews()
         var div = $("#chat_window");
         if (Math.abs(div[0].scrollHeight - div.scrollTop() - div[0].clientHeight) < 100)
         {
-        //div.scrollTop($("#chat_window").prop('scrollHeight')); прокрутки, нужно поставить какое-то условие, что чел
+        //div.scrollTop($("#chat_window").prop('scrollHeight'));
             div.animate({scrollTop: div.prop('scrollHeight')}, 600);
         }
       },
@@ -40,17 +40,16 @@ function picture() {
 //прокрутка окна чата
 $(document).ready(function() {
     var div = $("#chat_window");
-    div.scrollTop(div.prop('scrollHeight')); // резкая
-    //div.animate({scrollTop: div.prop('scrollHeight')}, 600); // плавная
+    //div.scrollTop(div.prop('scrollHeight')); // резкая
+    div.animate({scrollTop: div.prop('scrollHeight')}, 600); // плавная
 });
 
 //прокрутка по кнопке
-$(function(){
-    $('#scroll_down').click(function(){
-        var div = $("#chat_window");
-        div.animate({scrollTop: div.prop('scrollHeight')}, 600);
-    });
-});
+function scrollToDown()
+{
+    var div = $("#chat_window");
+    div.animate({scrollTop: div.prop('scrollHeight')}, 600);
+}
 
 //авторастворение кнопки в пространстве
 $(document).ready(function() {
