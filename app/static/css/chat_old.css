@@ -6,30 +6,37 @@
 
 body
 {
+    display: flex;
     background: rgb(32,15,33) url("../images/back_ground.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    font-family: genshin;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .chat_frame
 {
     display: flex;
+    flex-basis: content;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    width: 80%;
+    height: 90%;
 }
 
 .chat_window
 {
     color: #fdffe8;
-    margin-top: 0px;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    border-style: none;
     border-radius: 20px;
-    width: 80%;
-    height: 35pc;
+    width: 100%;
+    height: 100%;
     background-color: rgb(32,15,33);
     overflow: auto;
 }
@@ -48,34 +55,49 @@ body
 
 .chat_window::-webkit-scrollbar-thumb
 {
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgb(90,61,92), rgb(187, 20, 100));
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgb(90,61,92), rgb(187, 20, 100));
 }
 
-a
+#scroll_down
 {
-    color: #259aff;
-    text-shadow: 2px 2px 3px black;
+	position: absolute;
+	bottom: 8em;
+	right: -5em;
+	z-index: 1000;
+	width: 32px;
+	height: 32px;
+	background: url("../images/scroll_down.png") 50% 50% no-repeat;
+	border-radius: 50%;
+	opacity: 0.5;
 }
 
-td, th {
-    padding: 5px;
+#scroll_down:hover
+{
+ 	opacity: 1;
 }
+
 
 .message_design
 {
     display: flex;
     color: black;
+    font-family: genshin;
     margin: 0.7em auto 0.7em 0.7em;
     padding: 5px 5px 0px 5px;
     border-style: none;
     border-radius: 5px;
     width: fit-content;
     max-width: 45%;
-    min-width: 10%;
     min-height: 6%;
     background-color: #a33f6f;
     word-break: break-word;
+}
+
+a
+{
+    color: #259aff;
+    text-shadow: 2px 2px 3px black;
 }
 
 .my_message_design
@@ -89,16 +111,43 @@ td, th {
     border-radius: 5px;
     width: fit-content;
     max-width: 45%;
-    min-width: 20%;
     min-height: 6%;
     background-color: #905CA4;
     word-break: break-word;
 }
 
+.block_picture
+{
+    display: inline-block;
+    margin: 0 5px 0 0px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+.block_text
+{
+    color: black;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.block_name
+{
+
+}
+
+.block_time
+{
+
+}
+
 .user_input
 {
     display: flex;
-    width: 80%;
+    position: sticky;
+    bottom: 20px;
+    height: 40px;
+    width: 100%;
     align-items: flex-end;
 }
 
@@ -139,34 +188,4 @@ td, th {
 {
     color: black;
     background-color: white;
-}
-
-#scroll_down
-{
-    position: absolute;
-	width: 32px;
-	height: 32px;
-	background: url("../images/scroll_down.png") 50% 50% no-repeat;
-	border-radius: 50%;
-	opacity: 0.5;
-	left: 50%;
-	bottom: 8em;
-}
-
-#scroll_down:hover
-{
- 	opacity: 1;
-}
-
-nav.navbar.navbar-default
-{
-    font-family: genshin;
-    background: linear-gradient(180deg, rgb(90,61,92), rgb(187, 20, 100));
-    border: 2px solid #631150;
-    border-radius: 7px;
-}
-
-.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand
-{
-    color: #fdffe8;
 }

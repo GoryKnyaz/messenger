@@ -22,7 +22,7 @@ h1
     color: #fdffe8;
     margin: 3%;
     text-shadow: 2px 2px 3px black;
-    font-size: 20px;
+    font-size: 25px;
     font-family: genshin;
 }
 
@@ -104,4 +104,28 @@ input[type="submit" i]
     font-family: genshin;
     border: 2px outset rgb(246,56,204);
     background: linear-gradient(25deg, rgb(90,61,92), rgb(187, 20, 100));
+}
+
+input[type="submit" i]:hover
+{
+    background: linear-gradient(25deg, rgb(187, 20, 100), rgb(90,61,92));
+}
+
+input[type="submit" i]:active
+{
+    color: black;
+    background: #fdffe8;
+}
+
+nav.navbar.navbar-default
+{
+    font-family: genshin;
+    background: linear-gradient(180deg, rgb(90,61,92), rgb(187, 20, 100));
+    border: 2px solid #631150;
+    border-radius: 7px;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand
+{
+    color: #fdffe8;
 }

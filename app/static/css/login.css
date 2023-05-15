@@ -36,6 +36,11 @@ p
     font-family: genshin;
 }
 
+a
+{
+    color: #259aff;
+}
+
 .row
 {
     display: flex;

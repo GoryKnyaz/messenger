@@ -1,0 +1,61 @@
+@font-face
+{
+    font-family: genshin;
+    src: url("../fonts/Genshin_Impact.ttf");
+}
+
+body
+{
+    display: flex;
+    min-height: 90vh;
+    align-items: center;
+    background: rgb(32,15,33) url("../images/back_ground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    flex-direction: column;
+    font-family: genshin;
+}
+
+h1
+{
+    text-align: center;
+    color: #fdffe8;
+    margin: 3%;
+    text-shadow: 2px 2px 3px black;
+    font-size: 30px;
+}
+
+nav.navbar.navbar-default
+{
+    width: 100%;
+    font-family: genshin;
+    background: linear-gradient(180deg, rgb(90,61,92), rgb(187, 20, 100));
+    border: 2px solid #631150;
+    border-radius: 7px;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand
+{
+    color: #fdffe8;
+}
+
+button
+{
+    display: flex;
+    color: #fdffe8;
+    font-size: 15px;
+    padding: 7px 50px;
+    border-radius: 7px;
+    border: 2px outset rgb(246,56,204);
+    background: linear-gradient(75deg, rgb(90,61,92), rgb(187, 20, 100));
+    justify-content: center;
+    width: 10%;
+}
+
+a
+{
+    font-size: 15;
+    color: #fdffe8;
+}

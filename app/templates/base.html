@@ -23,11 +23,12 @@
 {% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename= './css/base.css') }}">
     <div class="container">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-            <div class="alert alert-info" role="alert">{{ message }}</div>
+                <div class="alert" role="alert">{{ message }}</div>
             {% endfor %}
         {% endif %}
         {% endwith %}

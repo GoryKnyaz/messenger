@@ -4,14 +4,11 @@
     src: url("../fonts/Genshin_Impact.ttf");
 }
 
-body
+.alert
 {
-    display: flex;
-    border-radius: 5px;
-    align-items: center;
-    text-align: center;
-    font-size: 18px;
+    color: #fdffe8;
     font-family: genshin;
-    flex-direction: column;
-    justify-content: center;
+    background: linear-gradient(180deg, rgb(90,61,92), rgb(187, 20, 100));
+    border: 2px solid #631150;
+    border-radius: 7px;
 }
