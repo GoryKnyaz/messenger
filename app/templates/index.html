@@ -24,7 +24,7 @@
 
         </div>
         {% if form %}
-                <form class="user_input" action="" method="post">
+                <form class="user_input" action="sendMessage" method="GET">
                     {{ form.hidden_tag() }}
                         {{ form.post(cols=32, rows=4) }}
                         {% for error in form.post.errors %}

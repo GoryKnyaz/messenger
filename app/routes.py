@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from flask_moment import moment
 from werkzeug.urls import url_parse
-from app import app, db
+from app import app, db, Config
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, EmptyForm
 from app.models import User, Post
 from datetime import datetime
@@ -17,14 +17,26 @@ from datetime import datetime
 @login_required
 def index():
     form = PostForm()
-    if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
-        db.session.add(post)
-        db.session.commit()
-        return redirect(url_for('index'))
-    posts = Post.query.order_by(Post.timestamp.asc()).all()
+    posts = Post.query.order_by(Post.timestamp.desc()).limit(Config.POSTS_PER_PAGE).all()[::-1]
     return render_template('index.html', title='Messenger', form=form,
                            posts=posts)
+
+@app.route('/sendMessage', methods=['GET'])
+@login_required
+def sendMessage():
+    user_name = request.args.get('user')
+    timestamp = datetime.utcfromtimestamp(datetime.fromisoformat(request.args.get('time')).timestamp())
+    body = request.args.get('body')
+    last_user = User.query.filter_by(username=user_name).first()
+    post = db.session.query(Post).filter(Post.user_id == last_user.id, Post.body == body,
+                                         Post.timestamp.like('%{}%'.format(timestamp))).first()
+    post_id = 0 if post is None else post.id
+    posts = db.session.query(Post).filter(Post.id > post_id).order_by(Post.timestamp.asc()).all()
+    post = Post(body=request.args.get('cur_body'), author=current_user)
+    db.session.add(post)
+    db.session.commit()
+    posts.append(post)
+    return render_template('posts.html', posts=posts)
 
 
 @app.route('/whatNews')
