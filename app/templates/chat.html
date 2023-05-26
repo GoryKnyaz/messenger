@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block title %}
+    {% if title %}{{ title }}{% else %}Welcome to Microblog{% endif %}
+{% endblock %}
 
 {% block links %}
     <link rel="stylesheet" href="{{ url_for('static', filename= './css/chat.css') }}">

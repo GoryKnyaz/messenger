@@ -1,7 +1,12 @@
 {% extends 'bootstrap/base.html' %}
 {% block title %}
-    {% if title %}{{ title }} - Microblog{% else %}Welcome to Microblog{% endif %}
+    {% if title %}{{ title }}{% else %}Microblog{% endif %}
 {% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="icon" href="{{ url_for('static', filename= './icons/main.ico') }}" type="image/x-icon">
+{% endblock styles %}
 
 {% block navbar %}
 {% if not current_user.is_anonymous %}

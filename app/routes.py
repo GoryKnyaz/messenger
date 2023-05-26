@@ -23,7 +23,7 @@ def index():
         db.session.commit()
         return redirect(url_for('index'))
     posts = Post.query.order_by(Post.timestamp.asc()).all()
-    return render_template('index.html', title='Home', form=form,
+    return render_template('index.html', title='Messenger', form=form,
                            posts=posts)
 
 
@@ -99,7 +99,7 @@ def unfollow(username):
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     form = EmptyForm()
-    return render_template('user.html', user=user, form=form)
+    return render_template('user.html', user=user, title=f"{username}", form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
