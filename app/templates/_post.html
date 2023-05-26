@@ -9,7 +9,7 @@
                 <a href="{{ url_for('user', username=post.author.username) }}">
                     {{ post.author.username }}
                 </a>
-                <i>{{ moment(post.timestamp).format('H:mm, D:MM:YYYY') }}</i>
+                <i>{{ moment(post.timestamp).format('H:mm') }}</i>
                 <br>
                 {{ post.body }}
             </td>
